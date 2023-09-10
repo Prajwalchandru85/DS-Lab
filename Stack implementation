@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+int stack[50];
+int option = 0, n, top = -1, ele;
+
+void push() {
+    if (top == n - 1) {
+        printf("Stack is full\n");
+    } else {
+        printf("Enter the value: ");
+        scanf("%d", &ele);
+        top++;
+        stack[top] = ele;
+    }
+}
+
+int pop() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+     
+    } else {
+        int poppedValue = stack[top];
+        top--;
+        return poppedValue;
+    }
+}
+
+void show() {
+    if (top == -1) {
+        printf("Stack is empty\n");
+    } else {
+        printf("Elements in the stack:\n");
+        for (int i = 0; i <= top; i++) {
+            printf("%d\n", stack[i]);
+        }
+    }
+}
+
+int main() {
+    printf("Enter the number of elements in the stack: ");
+    scanf("%d", &n);
+    while (option != 4) {
+        printf("Choose one from the below options...\n");
+        printf("1. Push\n2. Pop\n3. Show\n4. Exit\n");
+        printf("Enter your option: ");
+        scanf("%d", &option);
+
+        switch (option) {
+            case 1:
+                push();
+                break;
+            case 2:
+                printf("Popped element: %d\n", pop());
+                break;
+            case 3:
+                show();
+                break;
+            case 4:
+                printf("Exiting\n");
+                break;
+            default:
+                printf("Wrong option\n");
+        }
+    }
+
+    return 0;
+}
