@@ -5,7 +5,7 @@ struct stack
 {
     int top;
     int data[size];
-    int i;
+  
 };
 typedef struct stack STACK;
 void push(STACK *s, int item)
